@@ -1,0 +1,180 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>datemap</title>
+    <script src="http://tliangl.com/j/jq.min.js" type="text/javascript"></script>
+    <link href="images/date.css" rel="stylesheet" type="text/css" />
+    <script src="images/date.js" type="text/javascript"></script>
+    <style type="text/css">
+		/* 一个可爱的小动画 */
+        body{-webkit-animation-name: html_page; -webkit-animation-duration: 500ms; -webkit-animation-timing-function: ease-in-out;}@-webkit-keyframes html_page {0% {-webkit-transform:translate(-100%,0px)}100% {-webkit-transform:translate(0px,0px)}}
+        .myTag {
+            color: red;
+            z-index: 10000;
+            font-size: 12px;
+            position: absolute;
+            left: 2px;
+            top：2px;
+        }
+
+        .myEdit {
+            width: 16px;
+            height: 16px;
+            background-image: url(images/ico-edit.gif);
+            position: absolute;
+            display: block;
+            right: 2px;
+            top: 3px;
+            cursor: pointer;
+            z-index: 100000;
+        }
+
+        .myDetail {
+            width: 250px;
+            display: none;
+            height: 150px;
+            color: white;
+            top: 60px;
+            left: -106px;
+            z-index: 10000;
+            border-radius: 3px;
+            padding: 10px 30px 20px;
+            position: absolute;
+            box-shadow: 2px 2px 5px 0px gray;
+            background-color: #BEBEBE;
+        }
+        .myDetail .title {
+            text-align: center;
+            font-size: 19px;
+            margin: 10px 0px 20px;
+            font-family: microsoft yahei;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+			//你可以直接使用下面的一行代码调用:
+			//$.datemap();
+			
+			//也可以继续往下看:
+			//传输数据格式，举个栗子:
+			var data_example = [
+            { year: 2014, month: 1, day: 2, dataDay: {} },
+			{ year: 2014, month: 1, day: 3, dataDay: {} }
+            ];
+			//需要添加自定义属性时(如本例)，一律添加到dataDay对象中:
+				data_example = [
+            { year: 2014, month: 1, day: 2, dataDay: { id: 2, name: 'myName1', status: 0,edit: 1 } },
+			{ year: 2014, month: 1, day: 3, dataDay: { id: 5, name: 'myName2', status: 1,edit: 0 } }
+            ];
+			//参数说明
+            $.datemap({
+				animate:true,//日期切换动画
+                fun: {
+					//更改url为你的WebService地址
+                    data: {
+                        url: function (data) {
+                            return 'http://tliangl.com/service/api.ashx?action=GetRandomDateData&year=' + data.year + '&month=' + data.month;
+                        }
+                    },
+					//在这里自定义包含在日期内的html内容
+                    tag: function (data) {
+                        var html = '';
+                        if (data.dataDay != null) {
+                            if (data.dataDay.name){
+								//在每个日期"天"上绑定来自数据库的动态内容
+                                html += '<span class="myTag">' + data.dataDay.name + '</span>';
+							}
+                            if (data.dataDay.edit == 1)//使用json数据源的自定义属性
+								//绑定超链接 (自定义标签的css样式需要你自己添加,如本例页面已将css添加到header-style)
+                                {html += '<a title="edit" class="myEdit"></a>';
+							}
+                            if (data.dataDay.status == 1){
+                                html += '<i class="success"></i>';
+							}
+                        }
+                        return html;
+                    },
+					//在这里自定义包含在日期内的tip内容,return "" 屏蔽 tip功能.
+                    tip: function (data) {
+                        var html = '';
+                            html += '<div class="myDetail" ><p class="title">' + data.year + "年" + data.month + "月" + data.day + '日</p>';
+                            if (data.dataDay != null)
+                                html += '<p>' + data.dataDay.name + '</p>';
+                            html += '</div>';
+                        return html;
+                    },
+					//点击日期触发事件
+                    event: function (data) {
+                        alert(data.year+'-'+data.month+'-'+data.day);
+                    }
+                }
+            });
+			//在这里提问:http://tliangl.com/leave.aspx
+        })
+    </script>
+</head>
+<body>
+    <div class="date-tool-div">
+        <div class="date-year-list">
+            <div id="select_year">
+            </div>
+            <a id="btn_year_prev" title="prev year">‹</a>
+            <input class="select_year" readonly="readonly" />
+            <a id="btn_year_next" title="next year">›</a>
+            <div class="date-year-div">
+                <div class="date-year-close" title="close">
+                </div>
+                <div class="date-year-prev" title="prev">
+                </div>
+                <div class="date-year-next" title="right">
+                </div>
+                <div class="date-year-div-ul-p">
+                    <ul id="date-year-div-ul">
+                        <li>
+                            <ul></ul>
+                        </li>
+                        <li>
+                            <ul></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="date-month-list">
+            <ul></ul>
+        </div>
+    </div>
+    <div class="date-date-div">
+        <div class="date-date-div-day">
+            <table id="tb_day">
+                <thead>
+                    <tr>
+                        <th>
+                            星期日
+                        </th>
+                        <th>
+                            星期一
+                        </th>
+                        <th>
+                            星期二
+                        </th>
+                        <th>
+                            星期三
+                        </th>
+                        <th>
+                            星期四
+                        </th>
+                        <th>
+                            星期五
+                        </th>
+                        <th>
+                            星期六
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <ul id="ul_day"></ul>
+        </div>
+    </div>
+</body>
+</html>

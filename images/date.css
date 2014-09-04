@@ -1,0 +1,468 @@
+﻿* {
+    border: 0 none;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #5AA51F;
+}
+table, tr, th, td {
+    border-collapse: collapse;
+    color: #1A9215;
+}
+.main-content {
+    clear: both;
+    height: 410px;
+    width: 1280px;
+}
+.date-tool-div {
+    height: 40px;
+    margin: 10px 20px;
+    width: 700px;
+}
+.date-tool-div .date-year-list {
+    margin-top: 10px;
+    position: relative;
+    text-align: center;
+    width: 120px;
+    float: left;
+}
+.date-tool-div .date-year-list .combo-text, .date-tool-div .date-year-list .combobox-item {
+    padding-left: 8px;
+}
+.date-tool-div .date-year-list #btn_year_prev, .date-tool-div .date-year-list #btn_year_next {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    left: 5px;
+    color: #CCCCCC;
+    position: absolute;
+    top: -6px;
+}
+.date-tool-div .date-year-list #btn_year_next {
+    left: 103px;
+    top: -6px;
+}
+.date-tool-div .date-year-list #btn_year_next:hover, .date-tool-div .date-year-list #btn_year_prev:hover {
+    opacity: 0.6;
+}
+.date-tool-div .date-year-list .date-year-div {
+    background-color: #F4F8FC;
+    border: 1px solid #E9F4FF;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.85);
+    display: none;
+    height: 150px;
+    left: 70px;
+    opacity: 0.9;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+    width: 300px;
+    z-index: 10000;
+}
+.date-tool-div .date-year-list .select_year {
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    font-size: 20px;
+    height: 25px;
+    margin-bottom: 25px;
+    color: #96DB60;
+    padding-left: 10px;
+    width: 60px;
+}
+.date-tool-div .date-year-list .date-year-div .date-year-div-ul-p {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+}
+.date-tool-div .date-year-list .date-year-div #date-year-div-ul {
+    height: 200px;
+    position: absolute;
+    width: 600px;
+}
+.date-tool-div .date-year-list .date-year-div #date-year-div-ul > li {
+    float: left;
+    height: 200px;
+    width: 280px;
+}
+.date-tool-div .date-year-list .date-year-div #date-year-div-ul > li > ul {
+    height: 200px;
+    width: 280px;
+}
+.date-tool-div .date-year-list .date-year-close, .date-tool-div .date-year-list .date-year-prev, .date-tool-div .date-year-list .date-year-next {
+    background-image: url(fancy_close.png);
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: -14px;
+    top: -13px;
+    width: 30px;
+}
+.date-tool-div .date-year-list .date-year-prev {
+    background-image: url(fancy_nav_left.png);
+    left: -15px;
+    top: 80px;
+}
+.date-tool-div .date-year-list .date-year-next {
+    background-image: url(fancy_nav_right.png);
+    right: -15px;
+    top: 80px;
+}
+.date-tool-div .date-year-list .date-year-div ul li {
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    list-style: none outside none;
+    text-align: center;
+    width: 70px;
+}
+.date-tool-div .date-year-list .date-year-div ul li ul li:hover {
+    color: #77F524;
+    font-size: 16px;
+    font-weight: bold;
+}
+.date-month-list {
+    background-color: #FFFFFF;
+    border: 1px solid #F6F6F6;
+    float: right;
+    height: auto;
+    margin: 10px;
+    overflow: hidden;
+}
+.date-month-list ul {
+    padding: 0;
+}
+.date-month-list li {
+    border-right: 1px dotted #F1F1F1;
+    float: left;
+    font-size: 13px;
+    height: 22px;
+    list-style: none outside none;
+    padding: 3px 4px 0;
+    text-align: center;
+    width: 35px;
+}
+.date-month-list li:after {
+    color: #808080;
+    content: "›";
+    float: right;
+    font-family: Georgia;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 20px;
+}
+.date-month-list li:hover {
+    background-color: #F2F2F2;
+    cursor: default;
+}
+.date-month-list li div {
+    background: url("ul-month.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    font-family: 黑体;
+    font-size: 14px;
+    height: 22px;
+    margin-left: 50px;
+    text-decoration: none;
+    width: 60px;
+}
+.date-month-list li a {
+    font-family: 黑体;
+    font-size: 13px;
+    line-height: 22px;
+    text-decoration: none;
+}
+.date-month-list li a.sys {
+    color: #FF0000;
+}
+.date-month-list li a:hover {
+    text-decoration: none;
+}
+.date-month-list li.c {
+    background-color: #6DDF30;
+
+}
+.date-month-list li.c a{    color: white;}
+.date-date-div {
+    background: url("tab-bg-750.png") 0 29px no-repeat white;
+    height: 460px;
+    margin:0px;
+    padding: 0px;
+    margin-left: 0;
+    width: 754px;
+}
+.date-date-div-day {
+    clear: both;
+    height: 390px;
+    margin: 0px;
+    margin-left: 25px;
+    width: 700px;
+}
+.date-date-div #tb_day {
+    position: relative;
+    width: 700px;
+}
+.date-date-div #tb_day th {
+    background-image: url("tab_li.png");
+    height: 30px;
+    text-align: center;
+    width: 100px;
+    cursor: default;
+}
+.date-date-div #ul_day {
+    height: 430px;
+    margin: 0;
+    overflow1: hidden;
+    padding: 0;
+    position: relative;
+    width: 700px;
+}
+.date-date-div #ul_day li {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #E4E4E4;
+    color: #E2E2E2;
+    height: 59px;
+    list-style: none outside none;
+     margin: -1px;
+    opacity: 0.7;
+    position: absolute;
+    width: 99px;
+}
+.date-date-div #ul_day li:hover {
+    color: #AAA;
+    opacity: 1;
+}
+.date-date-div #ul_day li.currday {
+    background-color: #E7EEFE;
+}
+.date-date-div #ul_day li i.success{width: 25px;height: 25px;background-image: url(panel-index-ok.png);position:absolute;display: block;right: 0px;bottom: 0px;z-index: 100000;}
+.date-date-div #ul_day li i.success.c{background-color:#fcfcfc;}
+
+
+
+.date-date-div #ul_day li div.day_bg {
+    background-color: #FFFFFF;
+    height: 59px;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 0;
+    width: 98px;opacity:1;
+}
+.date-date-div #ul_day li div.day_bg.other
+{
+    background-color: #F7F7F7;opacity:0.8;
+    }
+.date-date-div #ul_day li div.day_bg > div {
+    font-family: 黑体;
+    font-size: 52px;
+    font-weight: bold;
+    cursor: default;
+    text-align: center;}
+.date-date-div #ul_day li div.day_bg > div.day_prev {
+    color: #E0E0E0;
+}
+.date-date-div #ul_day li div.day_bg > div.day_curr {
+    color: #00FB29;
+}
+.date-date-div #ul_day li div.day_bg > div.day_next {
+    color: #DADADA;
+}
+.date-date-div #ul_day li img.day_status_y, .date-date-div #ul_day li div.day_status_n {
+    height: 26px;
+    position: absolute;
+    right: 3px;
+    display: none;
+    top: 3px;
+    width: 26px;
+}
+.date-date-div #ul_day li div.day_status_n {
+    background-image: url("ico-question.gif");
+}
+.date-date-div #ul_day li div.day_show, .date-date-div #ul_day li div.day_edit {
+    bottom: 15px;
+    color: #808080;
+    cursor1: pointer;
+    font-size: 12px;
+    height: 20px;
+    position: absolute;
+    right: 2px;
+    text-decoration: none;
+    width: 26px;
+}
+
+.date-date-div #ul_day li div.day_show.day_show_un{color: rgb(255, 0, 0);background-color: rgb(255, 0, 0);width: 7px;height: 7px;border: 2px solid white;bottom: 48px;}
+.date-date-div #ul_day li div.day_show:hover, .date-date-div #ul_day li div.day_edit:hover {
+    color: #FFA500;
+}
+.date-date-div #ul_day li div.day_edit {
+    color: #008000;
+    display: none;
+}
+.date-date-div #ul_day li div.day_mark {
+    background-image: url(ico-edit.gif);
+    cursor: pointer;
+    height: 16px;
+    left: 5px;
+    position: absolute;
+    top: -5px;
+    width: 16px;
+}
+.mark-div-day {
+    float: left;
+    height: 400px;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 620px;
+}
+.mark-div-day .mark-div-header {
+    margin-top: 10px;
+    text-align: center;
+}
+.mark-div-day .mark-div-header > span {
+    color: #165E9E;
+    font-family: 黑体;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 34px;
+}
+.mark-div-day .mark-list-day {
+    background-color: #FFFFFF;
+    border: 1px solid #F6F6F6;
+    height: auto;
+    margin: 10px;
+    overflow: hidden;
+    width: 600px;
+}
+.mark-div-day .mark-list-day ul {
+}
+.mark-div-day .mark-list-day li {
+    font-size: 13px;
+    height: 22px;
+    list-style: none outside none;
+    padding-top: 3px;
+}
+.mark-div-day .mark-list-day li:hover {
+    background-color: #F2F2F2;
+}
+.mark-div-day .mark-list-day li .mark-li-content {
+    float: left;
+    height: 17px;
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 470px;
+}
+.mark-div-day .mark-list-day li .mark-li-date {
+    float: right;
+    margin-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 75px;
+}
+.mark-div-day .mark-list-day li .mark-li-edit, .mark-div-day .mark-list-day li .mark-li-del {
+    cursor: pointer;
+    float: right;
+    height: 16px;
+    margin: 0;
+    opacity: 0.4;
+    padding-right: 5px;
+    width: 16px;
+}
+.mark-div-day .mark-list-day li .mark-li-edit:hover, .mark-div-day .mark-list-day li .mark-li-del:hover {
+    height: 20px;
+    margin: -2px;
+    opacity: 1;
+    width: 20px;
+}
+.mark-div-day .mark-list-day li .sys {
+    color: #FF0000;
+}
+.mark-div-day .mark-list-day li a:hover {
+    text-decoration: none;
+}
+.mark-div-day .mark-list-day li.current-type {
+    background-color: #E7EEFE;
+}
+.mark-div {
+    float: left;
+    height: 400px;
+    width: 220px;
+}
+.mark-div .mark-div-header {
+    margin-top: 10px;
+    text-align: center;
+}
+.mark-div .mark-div-header > span {
+    color: #165E9E;
+    font-family: 黑体;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 34px;
+}
+.mark-list {
+    background-color: #FFFFFF;
+    border: 1px solid #F6F6F6;
+    height: auto;
+    margin: 10px;
+    overflow: hidden;
+    width: 200px;
+}
+.mark-list ul {
+}
+.mark-list li {
+    font-size: 13px;
+    height: 22px;
+    list-style: none outside none;
+    padding-top: 3px;
+}
+.mark-list li:hover {
+    background-color: #F2F2F2;
+}
+.mark-list li .mark-li-content {
+    float: left;
+    height: 17px;
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 75px;
+}
+.mark-list li .mark-li-date {
+    float: right;
+    margin-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70px;
+}
+.mark-list li .mark-li-edit, .mark-list li .mark-li-del {
+    cursor: pointer;
+    float: right;
+    height: 16px;
+    margin: 0;
+    opacity: 0.4;
+    padding-right: 5px;
+    width: 16px;
+}
+.mark-list li .mark-li-edit:hover, .mark-list li .mark-li-del:hover {
+    height: 20px;
+    margin: -2px;
+    opacity: 1;
+    width: 20px;
+}
+.mark-list li .sys {
+    color: #FF0000;
+}
+.mark-list li a:hover {
+    text-decoration: none;
+}
+.mark-list li.current-type {
+    background-color: #E7EEFE;
+}
