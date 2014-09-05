@@ -31,17 +31,18 @@
 
         .myDetail {
             width: 250px;
-            display: none;
-            height: 150px;
-            color: white;
-            top: 60px;
-            left: -106px;
-            z-index: 10000;
-            border-radius: 3px;
-            padding: 10px 30px 20px;
-            position: absolute;
-            box-shadow: 2px 2px 5px 0px gray;
-            background-color: #BEBEBE;
+			display: none;
+			height: 150px;
+			color: rgb(134, 134, 134);
+			top: 59px;
+			left: -106px;
+			z-index: 10000;
+			border-radius: 3px;
+			padding: 10px 30px 20px;
+			position: absolute;
+			box-shadow: 1px 2px 2px 0px rgba(128, 128, 128, 0.37);
+			background-color: #FFFFFF;
+			border: 1px solid rgb(231, 231, 231);
         }
         .myDetail .title {
             text-align: center;
@@ -66,6 +67,9 @@
             { year: 2014, month: 1, day: 2, dataDay: { id: 2, name: 'myName1', status: 0,edit: 1 } },
 			{ year: 2014, month: 1, day: 3, dataDay: { id: 5, name: 'myName2', status: 1,edit: 0 } }
             ];
+            //前段时间因项目需要，开发了一个日程日历，现在做成了插件形式，分享一下
+        	//主要提供了开发者在日期上绑定自定义的功能
+        	
 			//参数说明
             $.datemap({
 				animate:true,//日期切换动画
